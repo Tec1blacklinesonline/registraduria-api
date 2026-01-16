@@ -53,17 +53,10 @@ app.post('/api/verificar-cedula', async (req, res) => {
         console.log(`[${new Date().toISOString()}] Verificando: ${cedula} - ${dia}/${mes}/${ano}`);
 
         browser = await puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(),
-    headless: chromium.headless,                
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-gpu',
-                '--disable-software-rasterizer',
-                '--disable-extensions'
-            ]
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath(),
+            headless: chromium.headless
         });
 
         const page = await browser.newPage();
@@ -175,5 +168,3 @@ app.listen(PORT, () => {
     console.log(`🚀 API corriendo en puerto ${PORT}`);
     console.log(`🔑 API Key configurada: ${process.env.API_KEY ? 'SÍ' : 'NO (usando default)'}`);
 });
-
-
