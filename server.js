@@ -1,5 +1,6 @@
 const express = require('express');
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
+const chromium = require('@sparticuz/chromium');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -172,3 +173,4 @@ app.listen(PORT, () => {
     console.log(`🚀 API corriendo en puerto ${PORT}`);
     console.log(`🔑 API Key configurada: ${process.env.API_KEY ? 'SÍ' : 'NO (usando default)'}`);
 });
+
